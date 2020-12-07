@@ -1,0 +1,268 @@
+@value blueberry: #c8daff;
+@value deepblueberry: #437bf7;
+@value raspberry: #ee7674;
+@value apple: #74AB18;
+@value strawberry: #C4201F;
+
+:global(#root) {
+    background-color: blueberry;
+    height: 100%;
+}
+
+.mainContainer {
+    height: inherit;
+}
+
+.flexRow {
+    display: flex;
+}
+
+.flexRowCenterAll {
+    composes: flexRow;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexRowGrow {
+    composes: flexRow;
+    flex-grow: 2;
+}
+
+.flexCenterGrow {
+    composes: flexRowGrow;
+    justify-content: center;
+}
+
+.flexCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexColCenterAll {
+    composes: flexCol;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexColGrow {
+    composes: flexCol;
+    flex-grow: 2;
+}
+
+.flexColCenterGrow {
+    composes:flexColGrow;
+    justify-content: center;
+}
+
+.justifySelfStart {
+    justify-self: flex-start;
+}
+
+.justifySelfCenter {
+    justify-self: center;
+}
+
+.justifySelfEnd {
+    justify-self: flex-end;
+}
+
+.headerContainer {
+    background: deepblueberry;
+    height: 100vh;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 4em;
+    color: #fff;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.primaryButton {
+    composes: flexRowCenterAll;
+    background-color: raspberry;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 2em;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+    border: none;
+}
+
+.primaryButton:not(:disabled):not(.disabled):hover {
+    background-color: raspberry;
+    color: #fff;
+    box-shadow: 0 0 0 3px white;
+}
+
+.primaryButton:not(:disabled):not(.disabled).active, .primaryButton:not(:disabled):not(.disabled):active {
+    background-color: #bc5c5a;
+}
+
+.primaryButton:not(:disabled):not(.disabled).focus, .primaryButton:not(:disabled):not(.disabled):focus {
+    background-color: raspberry;
+    border: none;
+    box-shadow: 0 0 0 3px white;
+}
+
+.primaryButton:disabled {
+    background-color: raspberry;
+}
+
+.beginButton {
+    composes: primaryButton;
+    width: 20%;
+}
+
+.searchButton {
+    composes: primaryButton;
+}
+
+.searchButton:not(:disabled):not(.disabled):hover {
+    background-color: #f66563;
+    box-shadow: 0 0 0 3px #bc5c5a;
+}
+
+.searchButton:not(:disabled):not(.disabled):focus {
+    background-color: #f66563;
+    box-shadow: 0 0 0 3px #bc5c5a;
+}
+
+.successButton {
+    composes: primaryButton;
+    background-color: apple;
+}
+
+.successButton:not(:disabled):not(.disabled):hover, .successButton:not(:disabled):not(.disabled):focus {
+    cursor: default;
+    background-color: apple;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.errorButton {
+    composes: primaryButton;
+    background-color: strawberry;
+}
+
+.errorButton:not(:disabled):not(.disabled):hover, .errorButton:not(:disabled):not(.disabled):focus {
+    cursor: default;
+    background-color: strawberry;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.contentContainer {
+    min-height: 100vh;
+}
+
+.tab {
+    display: flex;
+    flex: 1 0 0;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    height: 3em;
+
+    box-sizing: border-box;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+    /*border-bottom:8px solid deepblueberry !important;*/
+
+    background-color: transparent;
+    color: deepblueberry;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+:global(.nav-tabs .nav-link) {
+    border: none;
+}
+
+:global(.nav-tabs .nav-link.active) {
+    background-color: deepblueberry;
+    border-color: deepblueberry;
+    color: #fff;
+}
+
+:global(.nav-tabs .nav-link:not(.active):hover) {
+    padding: 0;
+    border: 2px solid deepblueberry;
+    color: deepblueberry;
+}
+
+.tabContent {
+    padding: 1em;
+    background-color: #fff;
+    min-height: 65vh;
+    border-bottom-left-radius: 1rem !important;
+    border-bottom-right-radius: 1rem !important;
+}
+
+.heading {
+    color: #0e131f;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.label {
+    composes: heading;
+    padding-left: 0.3em;
+}
+
+.sectionHeading {
+    background-color: deepblueberry;
+    color: #fff;
+    margin: -1em -1em 0;
+    height: 3em;
+    display: flex;
+    align-items: center;
+}
+
+.sectionHeading h4 {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.searchRow {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    flex-grow: 2;
+}
+
+.addFilterRow {
+    margin-top: -1em;
+}
+
+.tabContent :global(.card-header) {
+    padding-bottom: 0;
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.tabContent :global(.card-header):hover, .selectRow :global(.form-label):hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.tabContent :global(.card-body) {
+    padding: 0;
+}
+
+:global(.MuiTableCell-head) {
+    font-weight: bold !important;
+}
+
+:global(.card) {
+    border: none;
+}
+
+:global(.form-control:focus) {
+    border: 2px solid deepblueberry;
+    box-shadow: none;
+}
